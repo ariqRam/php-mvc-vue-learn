@@ -21,11 +21,21 @@ function createDB() {
   $conn = null;
 }
 
-function populateDB() {
+function populateDB($amount) {
   $faker = Faker\Factory::create();
-  // generate data by calling methods
-  echo $faker->name();
+  $db = new Database();
+
+  for($i=0; $i < $amount; $i++) {
+    $name = $faker->name();
+    $fakultas = $faker->randomElement(['FSKTM', 'FISIP', 'FH', 'FEB', 'STEI', 'FT']);
+    $jurusan= $faker->randomElement(['CS', 'AI', 'Kedokteran', 'Hukum', 'Ekonomi', 'Manajemen', 'Psikologi']);
+    $nim = $faker->randomNumber(7, true);
+    
+
+    // implement create new entries on $db
+  }
 
 }
 
-populateDB();
+createDB();
+populateDB(5);
