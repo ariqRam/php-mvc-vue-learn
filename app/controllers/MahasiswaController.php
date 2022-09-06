@@ -10,7 +10,7 @@ class MahasiswaController extends Controller
 
         $this->view('templates/header', $data);
         $this->view('mahasiswa/index', $data);
-        $this->view('templates/footer', $data, scripts: ['index.mahasiswa.php']);
+        $this->view('templates/footer', $data);
     }
 
     public function add()

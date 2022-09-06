@@ -7,28 +7,49 @@
     <title><?= $data['judul'] ?></title>
 
     <link rel="stylesheet" href="<?= BASEURL ?>/css/bootstrap.css">
+    <script src="https://unpkg.com/vue@3"></script>
 </head>
 
 <body>
-    <nav id="nav" class="navbar navbar-expand-lg bg-light">
-        <div class="container">
-            <a class="navbar-brand" href="<?= BASEURL ?>">MyMVC Journey</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="<?= BASEURL ?>/home" :click="isActive = 1">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="<?= BASEURL ?>/about" :click="isActive = 2">About</a>
-                    </li>
-                    <li class="nav-item" :class="{ active: isActive === 3}">
-                        <a class="nav-link" href="<?= BASEURL ?>/mahasiswa" :click="isActive = 3">Mahasiswa</a>
-                    </li>
-                </ul>
+<div id="head">
+    <navbara></navbara>
+</div>
+
+
+<script type="text/x-template" id="navbar-template">
+        <nav id="nav" class="navbar navbar-expand-lg bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="<?= BASEURL ?>">MyMVC Journey</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="<?= BASEURL ?>/home">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="<?= BASEURL ?>/about" >About</a>
+                        </li>
+                        <li class="nav-item" >
+                            <a class="nav-link" href="<?= BASEURL ?>/mahasiswa">Mahasiswa</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
+</script>
+
+<script >
+    const { createApp, ref } = Vue;
+    
+    const head = createApp({
+    })
+
+    head.component('navbara', {
+        template: '#navbar-template',
+    })
+
+    head.mount('#head')
+</script>
