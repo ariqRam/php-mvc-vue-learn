@@ -12,7 +12,7 @@
 
 <body>
 <div id="head">
-    <navbara></navbara>
+    <Navbar></Navbar>
 </div>
 
 
@@ -47,7 +47,7 @@
     const head = createApp({
     })
 
-    head.component('navbara', {
+    head.component('Navbar', {
         template: '#navbar-template',
     })
 

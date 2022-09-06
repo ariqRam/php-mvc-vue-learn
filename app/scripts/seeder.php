@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '\..\init.php';
+require_once __DIR__ . '/../init.php';
 
 function createDB() {
   try {
@@ -67,7 +67,7 @@ function populateMhs() {
   $mhs['fakultas'] = $faker->randomElement(['FSKTM', 'FISIP', 'FH', 'FEB', 'STEI', 'FT']);
   $mhs['jurusan']= $faker->randomElement(['CS', 'AI', 'Kedokteran', 'Hukum', 'Ekonomi', 'Manajemen', 'Psikologi']);
   $mhs['nim'] = $faker->randomNumber(7, true);
-  error_log($mhs['nim']);
+  error_log($mhs['nama'] . ' ' . $mhs['nim']);
   
   $mhsModel->insertData($mhs);
 }

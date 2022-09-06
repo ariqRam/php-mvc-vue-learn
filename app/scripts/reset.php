@@ -1,21 +1,21 @@
 <?php
 
-require_once __DIR__ . '\..\init.php';
+require_once __DIR__ . '/../init.php';
 
-function resetDB() {
+function dropDB() {
   try {
     $conn = new PDO("mysql:host=" . DB_HOST, DB_USER, DB_PASSWORD);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $sql = "DROP DATABASE " . DB_NAME;
+    $sql = "DROP DATABASE IF EXISTS " . DB_NAME;
 
     echo "Dropping Database . . .\n";
 
     $conn->exec($sql);
-    echo "Database dropped successfully";
+    echo "Database dropped successfully\n";
   } catch (PDOException $e) {
     echo $e->getMessage();
   }
 }
 
-resetDB();
-require_once __DIR__ . '\seeder.php';
+dropDB();
+require_once __DIR__ . '/seeder.php';
