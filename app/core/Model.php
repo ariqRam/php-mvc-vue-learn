@@ -2,8 +2,8 @@
 class Model {
 
     protected $tableName;
-    private $queryResult;
-    private $db;
+    protected $queryResult;
+    protected $db;
 
     public function __construct()
     {
